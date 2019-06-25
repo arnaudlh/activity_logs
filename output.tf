@@ -17,12 +17,3 @@ output "sa_logs_id" {
   value = azurerm_storage_account.log.id
 }
 
-output "map" {
-  depends_on = [azurerm_eventhub_namespace.log]
-
-  value = map(
-    eh_logs_id    = azurerm_eventhub_namespace.log.id,
-    eh_logs_name  = azurerm_eventhub_namespace.log.name,
-    sa_logs_id    = azurerm_storage_account.log.id
-  )
-}
