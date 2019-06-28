@@ -4,13 +4,13 @@
 #And defining fundamentals of subscription logging for all regions 
 
 resource "random_string" "storageaccount_name" {
-    length  = 20
+    length  = 3
     upper   = false
     special = false
 }
 
 resource "azurerm_storage_account" "log" {
-  name                     = "sl${random_string.storageaccount_name.result}"
+  name                     = "seclogs${prefix}${random_string.storageaccount_name.result}"
   resource_group_name      = "${var.resource_group_name}"
   location                 = "${var.location}"
   account_kind             = "StorageV2"
@@ -22,7 +22,7 @@ resource "azurerm_storage_account" "log" {
 }
 
 resource "azurerm_eventhub_namespace" "log" {
-  name                = "sl-${random_string.storageaccount_name.result}"
+  name                = "seclogs${prefix}${random_string.storageaccount_name.result}"
   location            = "${var.location}"
   resource_group_name = "${var.resource_group_name}"
   sku                 = "Standard"
