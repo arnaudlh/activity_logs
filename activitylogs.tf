@@ -10,7 +10,7 @@ resource "random_string" "storageaccount_name" {
 }
 
 resource "azurerm_storage_account" "log" {
-  name                     = "seclogs${prefix}${random_string.storageaccount_name.result}"
+  name                     = "seclogs${var.prefix}${random_string.storageaccount_name.result}"
   resource_group_name      = "${var.resource_group_name}"
   location                 = "${var.location}"
   account_kind             = "StorageV2"
@@ -22,7 +22,7 @@ resource "azurerm_storage_account" "log" {
 }
 
 resource "azurerm_eventhub_namespace" "log" {
-  name                = "seclogs${prefix}${random_string.storageaccount_name.result}"
+  name                = "seclogs${var.prefix}${random_string.storageaccount_name.result}"
   location            = "${var.location}"
   resource_group_name = "${var.resource_group_name}"
   sku                 = "Standard"
