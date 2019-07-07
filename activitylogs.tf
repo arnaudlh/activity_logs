@@ -83,7 +83,6 @@ storage_account_id = "${azurerm_storage_account.log.id}"
 
   retention_policy {
     enabled = true
-    days    = 0 #infinite retention
+    days    = var.logs_rentention
   }
- 
 }

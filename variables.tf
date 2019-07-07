@@ -13,3 +13,7 @@ variable "tags" {
 variable "prefix" {
   description = "(Optional) You can use a prefix to add to the list of resource groups you want to create"
 }
+
+variable "logs_rentention" {
+  description = "(Required) Number of days to keep the logs for long term retention"
+}
