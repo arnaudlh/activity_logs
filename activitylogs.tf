@@ -40,7 +40,7 @@ resource "azurerm_monitor_log_profile" "subscription" {
   ]
 
 # Add all regions - > put in variable
-# az account list-locations --output table
+# az account list-locations --query '[].name' 
   locations = [
     "eastus2",
     "westus",
