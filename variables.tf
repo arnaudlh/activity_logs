@@ -1,9 +1,9 @@
 variable "resource_group_name" {
-  description = "(Required) Name of the resource group to deploy the KV"
+  description = "(Required) Name of the resource group to deploy the activity logs."
 }
 
 variable "location" {
-  description = "(Required) Define the region where the resources will be created"
+  description = "(Required) Define the region where the resources will be created."
 }
 
 variable "tags" {
